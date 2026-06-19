@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "social_medias",
+  "info": {
+    "singularName": "social-media",
+    "pluralName": "social-medias",
+    "displayName": "SocialMedia"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Telegram": {
+      "type": "string"
+    },
+    "Instagram": {
+      "type": "string"
+    },
+    "Facebook": {
+      "type": "string"
+    },
+    "TikTok": {
+      "type": "string"
+    }
+  }
+}

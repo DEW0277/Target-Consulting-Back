@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_details",
+  "info": {
+    "singularName": "about-detail",
+    "pluralName": "about-details",
+    "displayName": "AboutDetail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

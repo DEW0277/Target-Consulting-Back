@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_agreements",
+  "info": {
+    "singularName": "user-agreement",
+    "pluralName": "user-agreements",
+    "displayName": "UserAgreement"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  }
+}
