@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "telegram_posts",
+  "info": {
+    "singularName": "telegram-post",
+    "pluralName": "telegram-posts",
+    "displayName": "TelegramPost"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "telegramId": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "text": {
+      "type": "text"
+    },
+    "mediaUrl": {
+      "type": "string"
+    },
+    "publishedAtDate": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+}

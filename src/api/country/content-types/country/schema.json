@@ -27,6 +27,12 @@
     "list": {
       "type": "text",
       "required": true
+    },
+    "universities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::university.university",
+      "mappedBy": "country"
     }
   }
 }
