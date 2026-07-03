@@ -52,18 +52,29 @@ export default {
         });
       }
 
-      // Extract media URL (file_id) if photo or video or document is present
+      // Extract media URL (file_id) if photo, video, video_note, animation, or document is present
       let mediaUrl = '';
       const botToken = process.env.TELEGRAM_BOT_TOKEN;
 
       let fileId = '';
+      let defaultMimeType = 'image/jpeg';
+
       if (post.photo && post.photo.length > 0) {
         // Get the largest photo size file_id
         fileId = post.photo[post.photo.length - 1].file_id;
+        defaultMimeType = 'image/jpeg';
       } else if (post.video) {
         fileId = post.video.file_id;
+        defaultMimeType = 'video/mp4';
+      } else if (post.video_note) {
+        fileId = post.video_note.file_id;
+        defaultMimeType = 'video/mp4';
+      } else if (post.animation) {
+        fileId = post.animation.file_id;
+        defaultMimeType = 'video/mp4';
       } else if (post.document) {
         fileId = post.document.file_id;
+        defaultMimeType = 'application/octet-stream';
       }
 
       if (fileId && botToken) {
@@ -85,7 +96,9 @@ export default {
             if (!fs.existsSync(tempDir)) {
               fs.mkdirSync(tempDir, { recursive: true });
             }
-            const filename = `telegram_${messageId}_${path.basename(filePath)}`;
+            const isVideoNote = !!post.video_note;
+            const prefix = isVideoNote ? `telegram_${messageId}_videonote_` : `telegram_${messageId}_`;
+            const filename = `${prefix}${path.basename(filePath)}`;
             const tempFilePath = path.join(tempDir, filename);
             fs.writeFileSync(tempFilePath, buffer);
 
@@ -95,7 +108,7 @@ export default {
               data: {},
               files: {
                 originalFilename: filename,
-                mimetype: fileRes.headers.get('content-type') || 'image/jpeg',
+                mimetype: fileRes.headers.get('content-type') || defaultMimeType,
                 size: buffer.length,
                 filepath: tempFilePath,
               }
