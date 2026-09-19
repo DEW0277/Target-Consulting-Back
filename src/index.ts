@@ -26,6 +26,8 @@ export default {
         'api::about.about.findOne',
         'api::about-detail.about-detail.find',
         'api::about-detail.about-detail.findOne',
+        'api::blog-post.blog-post.find',
+        'api::blog-post.blog-post.findOne',
         'api::country.country.find',
         'api::country.country.findOne',
         'api::gallery.gallery.find',
