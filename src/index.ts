@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+import { readingTime } from './utils/reading-time';
+
 export default {
   /**
    * An asynchronous register function that runs before
@@ -74,6 +76,8 @@ export default {
         'api::visa-result.visa-result.findOne',
         'api::lead.lead.create',
         'api::subscriber.subscriber.create',
+        'api::country-page.country-page.find',
+        'api::country-page.country-page.findOne',
       ];
 
       const roleQuery = strapi.db.query('plugin::users-permissions.role');
@@ -134,6 +138,25 @@ export default {
         console.log('--- Public Permissions Successfully Configured! ---');
       } else {
         console.warn('Public role was not found in the database.');
+      }
+
+      // Blog posts saved before `readingTime` existed get it once, from their content.
+      try {
+        const posts = await strapi.db.query('api::blog-post.blog-post').findMany({
+          where: { readingTime: { $null: true } },
+          select: ['id', 'content'],
+        });
+        for (const post of posts) {
+          const minutes = readingTime(post.content);
+          if (minutes) {
+            await strapi.db
+              .query('api::blog-post.blog-post')
+              .update({ where: { id: post.id }, data: { readingTime: minutes } });
+          }
+        }
+        if (posts.length) console.log(`Reading time filled for ${posts.length} blog post row(s)`);
+      } catch (error) {
+        console.error('Failed to fill blog reading times:', error);
       }
 
       // --- AUTOMATIC DATA HEALING FOR TELEGRAM POSTS ---

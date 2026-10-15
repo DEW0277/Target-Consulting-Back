@@ -1,0 +1,113 @@
+{
+  "kind": "collectionType",
+  "collectionName": "country_pages",
+  "info": {
+    "singularName": "country-page",
+    "pluralName": "country-pages",
+    "displayName": "Country page",
+    "description": "Texts, facts and the side photo for each /countries/:code page (one entry per country)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "code": {
+      "type": "enumeration",
+      "enum": [
+        "USA",
+        "CA",
+        "UK",
+        "AUS",
+        "DEU",
+        "NLD",
+        "LVA"
+      ],
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "headline": {
+      "type": "string",
+      "maxLength": 120,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "intro": {
+      "type": "text",
+      "maxLength": 800,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "ielts": {
+      "type": "string",
+      "maxLength": 40,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "levels": {
+      "type": "string",
+      "maxLength": 60,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "tuition": {
+      "type": "string",
+      "maxLength": 80,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "intake": {
+      "type": "string",
+      "maxLength": 80,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "sidePhoto": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "sidePhotoCaption": {
+      "type": "string",
+      "maxLength": 80,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

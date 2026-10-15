@@ -33,7 +33,27 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "visa",
+        "grants",
+        "countries",
+        "ielts",
+        "student_life"
+      ]
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "readingTime": {
+      "type": "integer",
+      "min": 1
     }
   }
 }
