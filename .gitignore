@@ -60,6 +60,7 @@ $RECYCLE.BIN/
 *.out
 *.pid
 *.md
+!README.md
 
 
 ############################
@@ -71,6 +72,8 @@ $RECYCLE.BIN/
 *.sql
 *.sqlite
 *.sqlite3
+*.db
+*.rdb
 
 
 ############################
@@ -80,11 +83,18 @@ $RECYCLE.BIN/
 *#
 ssl
 .idea
+.vscode
+*.sublime-project
+*.sublime-workspace
 nbproject
 public/uploads/*
 !public/uploads/.gitkeep
 .tsbuildinfo
 .eslintcache
+*.pem
+*.key
+*.crt
+
 
 ############################
 # Node.js
@@ -97,6 +107,7 @@ logs
 results
 node_modules
 .node_history
+
 
 ############################
 # Package managers
@@ -112,19 +123,25 @@ node_modules
 .pnp.*
 yarn-error.log
 
+
 ############################
 # Tests
 ############################
 
 coverage
 
+
 ############################
-# Strapi
+# Strapi & Environment
 ############################
 
 .env
 .env.*
+!.env.example
 .env.local
+.env.development.local
+.env.test.local
+.env.production.local
 license.txt
 exports
 .strapi

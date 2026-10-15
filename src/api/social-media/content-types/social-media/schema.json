@@ -22,6 +22,9 @@
     },
     "TikTok": {
       "type": "string"
+    },
+    "YouTube": {
+      "type": "string"
     }
   }
 }

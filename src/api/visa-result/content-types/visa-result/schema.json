@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "visa_results",
+  "info": {
+    "singularName": "visa-result",
+    "pluralName": "visa-results",
+    "displayName": "Visa result",
+    "description": "Approved visas shown on the home page. Blur names, passport numbers and photos before uploading."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "country": {
+      "type": "enumeration",
+      "enum": [
+        "USA",
+        "CA",
+        "UK",
+        "AUS",
+        "DEU",
+        "NLD",
+        "LVA"
+      ],
+      "required": true
+    },
+    "visaType": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leads",
+  "info": {
+    "singularName": "lead",
+    "pluralName": "leads",
+    "displayName": "Lead",
+    "description": "Consultation requests from the website form"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40
+    },
+    "email": {
+      "type": "email"
+    },
+    "country": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "level": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "message": {
+      "type": "text",
+      "maxLength": 2000
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "uz",
+        "ru",
+        "en"
+      ],
+      "default": "uz"
+    },
+    "source": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "contacted",
+        "converted",
+        "closed"
+      ],
+      "default": "new",
+      "private": true
+    }
+  }
+}

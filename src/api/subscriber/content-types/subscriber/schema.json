@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscribers",
+  "info": {
+    "singularName": "subscriber",
+    "pluralName": "subscribers",
+    "displayName": "Subscriber",
+    "description": "Newsletter sign-ups from the site footer"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "uz",
+        "ru",
+        "en"
+      ],
+      "default": "uz"
+    }
+  }
+}

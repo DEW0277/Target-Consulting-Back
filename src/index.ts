@@ -19,6 +19,23 @@ export default {
    */
   async bootstrap({ strapi }: { strapi: any }) {
     try {
+      // Site languages: English is the default locale; Uzbek and Russian are added once.
+      try {
+        const locales = strapi.plugin('i18n').service('locales');
+        const wanted = [
+          { code: 'uz', name: 'Uzbek (uz)' },
+          { code: 'ru', name: 'Russian (ru)' },
+        ];
+        for (const locale of wanted) {
+          if (!(await locales.findByCode(locale.code))) {
+            await locales.create({ ...locale, isDefault: false });
+            console.log(`Added locale ${locale.code}`);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to ensure i18n locales:', error);
+      }
+
       console.log('--- Configuring Public Permissions Programmatically ---');
 
       const publicPermissions = [
@@ -52,6 +69,11 @@ export default {
         'api::comment.comment.findOne',
         'api::faq.faq.find',
         'api::faq.faq.findOne',
+        'api::site-setting.site-setting.find',
+        'api::visa-result.visa-result.find',
+        'api::visa-result.visa-result.findOne',
+        'api::lead.lead.create',
+        'api::subscriber.subscriber.create',
       ];
 
       const roleQuery = strapi.db.query('plugin::users-permissions.role');

@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_site_experience_items",
+  "info": {
+    "displayName": "Experience item",
+    "icon": "earth",
+    "description": "City photo card on the About page"
+  },
+  "options": {},
+  "attributes": {
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "country": {
+      "type": "enumeration",
+      "enum": [
+        "USA",
+        "CA",
+        "UK",
+        "AUS",
+        "DEU",
+        "NLD",
+        "LVA"
+      ],
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "required": true
+    }
+  }
+}
