@@ -21,12 +21,17 @@ export default {
    */
   async bootstrap({ strapi }: { strapi: any }) {
     try {
-      // Site languages: English is the default locale; Uzbek and Russian are added once.
+      // Site languages: English is the default locale; the others are added once.
       try {
         const locales = strapi.plugin('i18n').service('locales');
         const wanted = [
           { code: 'uz', name: 'Uzbek (uz)' },
           { code: 'ru', name: 'Russian (ru)' },
+          { code: 'kk', name: 'Kazakh (kk)' },
+          { code: 'ky', name: 'Kyrgyz (ky)' },
+          { code: 'tg', name: 'Tajik (tg)' },
+          { code: 'tr', name: 'Turkish (tr)' },
+          { code: 'az', name: 'Azerbaijani (az)' },
         ];
         for (const locale of wanted) {
           if (!(await locales.findByCode(locale.code))) {
