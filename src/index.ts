@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { readingTime } from './utils/reading-time';
+import { seedUniversityTranslations } from './utils/seed-university-translations';
 
 export default {
   /**
@@ -252,5 +253,10 @@ export default {
     } catch (error) {
       console.error('Failed to run bootstrap logic:', error);
     }
+
+    // Translations for universities; runs in the background so the server starts right away.
+    seedUniversityTranslations(strapi).catch((error) => {
+      console.error('Failed to seed university translations:', error);
+    });
   },
 };
